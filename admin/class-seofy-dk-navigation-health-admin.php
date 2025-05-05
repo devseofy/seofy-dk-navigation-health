@@ -90,6 +90,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 
 		// Hook into WordPress 'init' action to register the custom route
 		add_action('init', array($this,'export_json_route'));
+		add_action('init', array($this, 'register_health_category_post_types'));
 
 	}	
 
@@ -1800,6 +1801,44 @@ class Seofy_Dk_Navigation_Health_Admin {
 			// Prevent WordPress from rendering the normal page
 			exit;
 		}
+	}
+
+	public function register_health_category_post_types() {
+		$post_types = [
+			'kiropraktor'   => 'Kiropraktor',
+			'fysioterapeut' => 'Fysioterapeut',
+			'akupunktur'    => 'Akupunktør',
+			'massoer'       => 'Massør',
+			'zoneterapi'    => 'Zoneterapeut',
+			'osteopat'      => 'Osteopat',
+		];
+	
+		foreach ($post_types as $slug => $name) {
+			register_post_type($slug, [
+				'labels' => [
+					'name'               => $name . 's',
+					'singular_name'      => $name,
+					'add_new'            => 'Add New',
+					'add_new_item'       => 'Add New ' . $name,
+					'edit_item'          => 'Edit ' . $name,
+					'new_item'           => 'New ' . $name,
+					'view_item'          => 'View ' . $name,
+					'search_items'       => 'Search ' . $name . 's',
+					'not_found'          => 'No ' . strtolower($name) . 's found',
+					'not_found_in_trash' => 'No ' . strtolower($name) . 's found in Trash',
+					'all_items'          => 'All ' . $name . 's',
+					'archives'           => $name . ' Archives',
+				],
+				'public'       => true,
+				'has_archive'  => true,
+				'menu_position'=> 20,
+				'menu_icon'    => 'dashicons-id',
+				'supports'     => ['title', 'editor', 'thumbnail'],
+				'show_in_rest' => true,
+				'rewrite'      => ['slug' => $slug],
+			]);
+		}
+		
 	}
 	
 	
