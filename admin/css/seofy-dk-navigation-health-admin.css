@@ -1,0 +1,314 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+ .company-container {
+    display: flex;
+    align-items: stretch;
+    grid-column-gap: 20px;
+    flex-flow: wrap;
+}
+
+.company-area {
+    width: 24.5%;
+    padding: 20px;
+    border: solid 1px #e4e4e4;
+    border-radius: 10px;
+}
+
+.featured-imahe img {
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+}
+
+.company-excerpt p {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.more-btn {
+    background: #7e7e7e;
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.more-btn a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.more-btn:hover {
+    background: #555555;
+}
+
+.company-name h2::before {
+    content: "=";
+    text-align: center;
+    background: #CDDC39;
+    padding: 0px 7px 0px 7px;
+    color: #CDDC39;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.company-name {
+    border-bottom: solid 1px #efefef;
+}
+
+
+.company-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.company-name h2::before {
+    content: none;
+}
+
+.company-name {
+    border-bottom: solid 1px #efefef;
+    padding-left: 10px;
+    border-left: 10px solid #c7c7c7;
+    margin-bottom: 15px;
+}
+
+.company-name h2 {
+    font-weight: 500;
+    font-size: 18px;
+    text-align: start;
+}
+
+.company-area {
+    width: 32%;
+    padding: 20px;
+    margin-right: 10px;
+    border: solid 1px #cfcfcf;
+    margin-bottom: 10px;
+}
+
+.town-name-container {
+    background: #d0d0d0;
+    display: inline-grid;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.town-name-container a {
+    color: #000;
+    font-size: 16px;
+}
+
+.town-name-container:hover {
+    background: #9b9b9b;
+}
+
+.town-postal-codes a {
+    padding: 5px;
+    background: #d0d0d0;
+    display: inline-grid;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.town-postal-codes a:hover {
+    background: #b0b0b0;
+}
+
+.postal-code-container {
+    width: 33.3%;
+    display: inline-grid;
+}
+
+nav.rank-math-breadcrumb {
+    text-align: left;
+}
+
+.home-searhbox input#s {
+    width: 80%;
+    border: solid 1px #cccc;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.search-box-area {
+    background: white;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.search-output {
+    background: white;
+    padding: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.map-location {
+    background: whitesmoke;
+    padding: 20px;
+    width: auto;
+}
+
+.btn-area {
+    margin: 10px;
+}
+
+button.num-btn {
+    background: #d50019;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 25px 10px 25px;
+    color: #fff;
+}
+
+button.route-btn {
+    background: #404040;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 25px 10px 25px;
+    color: #fff;
+}
+
+.search-box-area input[type="submit"] {
+    padding: 10px;
+    border: whitesmoke;
+    background: gray;
+    width: 7%;
+    color: #fff;
+}
+
+.search-box-area input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    border: solid 1px whitesmoke;
+}
+
+.search-results {
+    background: whitesmoke;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.fa-location-dot:before {
+    content: "\f3c5";
+    font-family: Fontawesome;
+    margin-right: 10px;
+}
+
+.fa-phone:before {
+    content: "\f095";
+    font-family: Fontawesome;
+    margin-right: 10px;
+}
+
+button.num-btn {
+    background: #909090;
+    border-radius: 2px;
+}
+
+.address-area {
+    background: #909090;
+    border-radius: 2px;
+}
+
+.btn-area {
+    width: auto;
+    display: inline;
+}
+
+.comp-container {
+    width: 1200px;
+    margin: auto;
+}
+
+.flex-container {
+    display: inline-flex;
+}
+.company-area {
+    width: 100%;
+
+}
+.company-list-row {
+    width: 100%;
+    border: solid 1px #ccc;
+	margin-bottom:10px;
+	display:flex;
+}
+.map-area {
+    width: 25%;
+	border: solid 1px #ccc;
+    padding: 10px;
+	display:flex;
+}
+
+.inner-flex-cont-row {
+    display: flex;
+    border-right: 1px solid #ccc;
+    justify-content: space-around;
+	width:50%;
+}
+
+.comp-btn {
+    text-align: center;
+    padding: 10px 20px;
+    background: green;
+}
+
+.comp-btn a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+.comp-name h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+}
+.comp-cat {
+    font-weight: bold;
+}
+.col-sm {
+    padding: 10px;
+}
+
+.comp-description {
+    display: table;
+    height: 80%;
+}
+
+.comp-price-btn {
+    background: linear-gradient(#fff,#f2f2f2);
+    padding: 8px 10px;
+    text-align: center;
+    border: 1px solid #d2d2d2;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+}
+.comp-price-btn a {
+    text-decoration: none;
+}
+
+.schedule-area {
+	text-align:center;
+	width:25%;
+}
+.map-data {
+    width: 100%;
+}
+
+.checked {
+  color: orange;
+}
+
+.comp-description p {
+    margin: 0;
+}

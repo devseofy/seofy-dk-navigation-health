@@ -1,0 +1,851 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ *
+*/
+
+.alphabet-nav-wrapper{
+    position: relative;
+}
+.AlphabetNav {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-flow: wrap row;
+    padding: 0.5rem;
+    background: #12a567;
+}
+.AlphabetNav a {
+    display: flex;
+    justify-content: center;
+    padding: .5em;
+    border-radius: 8px;
+    font-size: 20px;
+    line-height: 1;
+    text-decoration: none;
+    color: white!important;
+    font-weight: bold;
+}
+
+.AlphabetNav a:hover {
+    background: #282828;
+    color: white;
+}
+
+.AlphabetNav .active {
+    background: #f46353;
+    color: white;
+}
+div#town-names-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+div#town-names-wrapper div {
+    width: 16%;
+    padding: 10px;
+    text-align: center;
+    margin: 1px;
+}
+div#town-names-wrapper div:hover a {
+    color: white;
+}
+div#town-names-wrapper div:hover {
+    background: #266abb;
+    transition: .5s;
+    border-radius: 5px;
+}
+
+div#town-names-wrapper a {
+    font-size: 16px;
+    color: #767676;
+}
+.reset-button a {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white !important;
+    background: #be0c0c;
+    display: inline-block;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.reset-button i {
+    margin-right: 15px;
+}
+
+
+
+/* CSS for Clinic List View */
+
+.comp-container {
+    width: 100%;
+    margin: auto;
+}
+
+.flex-container {
+    display: inline-flex;
+    width: 100%;
+}
+.company-area {
+    width: 100%;
+
+}
+.company-list-row {
+    width: 100%;
+    border: solid 1px #ccc;
+	margin-bottom:10px;
+	display:flex;
+}
+.map-area {
+    width: 25%;
+	border: solid 1px #ccc;
+    padding: 10px;
+	display:flex;
+}
+
+.inner-flex-cont-row {
+    display: flex;
+    border-right: 1px solid #ccc;
+    justify-content: space-around;
+	width:50%;
+}
+
+.comp-btn {
+    margin-top: 15px;
+}
+
+.comp-btn a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+	    background: #1db31d;
+    padding: 10px 33px;
+    border-radius: 10px;
+}
+.close-open-label.open-color, .open-label {
+    color: #1db31d;
+    font-weight: bold;
+}
+.close-open-label.closed-color, .closed-label {
+    color: red;
+    font-weight: bold;
+}
+.comp-name h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+.comp-cat {
+    font-weight: bold;
+}
+.col-sm {
+    padding: 10px;
+    width: 300px;
+}
+.col-sm img {
+    filter: grayscale(1);
+}
+.comp-address {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.comp-description {
+    display: table;
+    height: 80%;
+    font-size: 14px;
+}
+.comp-price-btn {
+    background: linear-gradient(#fff,#f2f2f2);
+    padding: 8px 10px;
+    text-align: center;
+    border: 1px solid #d2d2d2;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+}
+.comp-price-btn a {
+    text-decoration: none;
+}
+
+.schedule-area {
+    width: 25%;
+    padding: 10px;
+}
+.map-data {
+    width: 100%;
+}
+
+.checked {
+  color: orange;
+}
+
+.comp-description p {
+    margin: 0;
+}
+
+.close-open::before {
+    content: "\f017";
+    font-family: 'FontAwesome';
+    margin-right: 10px;
+    vertical-align: middle;
+    font-weight: 100;
+    color: #7c6e6e;
+}
+.close-open {
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.close-open-label {
+    font-size: 16px;
+}
+.comp-category {
+    width: 100%;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.facilities-area h4::before {
+    content: "\f015";
+    font-family: 'FontAwesome';
+    color: #7c6e6e;
+    margin-right: 10px;
+}
+
+.facilities-area ul {
+    margin: -14px 0px;
+    font-size: 14px;
+}
+.facilities-area ul li {
+    list-style: none;
+}
+
+.facilities-area ul li::before {
+    content: "\f101";
+    font-family: 'FontAwesome';
+    color: #aba6a6;
+    margin-right: 5px;
+}
+
+/*Responsive Css for Company List*/
+
+
+@media screen and (max-width: 500px) {
+  .company-list-row {
+    display: block;
+  }
+		.comp-thumbnail img {
+				width: 100%;
+				height: 250px;
+				object-fit: cover;
+		}
+	.schedule-area {
+		width: 100%;
+		padding: 10px;
+	}
+	
+	.inner-flex-cont-row {
+		display: block;
+		border-right: 1px solid #ccc;
+		width: 100%;
+	}
+	.col-sm {
+    padding: 10px;
+    width: 100%;
+	}
+	.comp-btn {
+    margin-top: 10px;
+    display: grid;
+    text-align: center;
+    margin-bottom: 10px;
+	}
+}
+
+@media screen and (max-width: 769px) and ( min-width:501px ) { 
+	.flex-container {
+		display: block;
+	}
+	.company-list-row {
+		width: 100%;
+		border: solid 1px #ccc;
+		margin-bottom: 10px;
+		display: block;
+	}
+	.inner-flex-cont-row {
+		display: flex;
+		border-right: 1px solid #ccc;
+		justify-content: space-around;
+		width: 100%;
+	}
+	.schedule-area {
+		width: 100%;
+		padding: 10px;
+	}
+	.col-sm img {
+    filter: grayscale(1);
+    width: 100%;
+    object-fit: cover;
+	}
+	.col-sm {
+    padding: 10px;
+    width: 100%;
+	}
+}
+
+
+/* Css for Clinic Page */
+
+.comp-facebook::before {
+    content: "\f09a";
+    font-family: Fontawesome;
+    font-size: 14px;
+    color: black;
+    margin-right: 10px;
+}
+
+.comp-phone::before {
+    content: "\f095";
+    font-family: Fontawesome;
+    font-size: 14px;
+    color: black;
+    margin-right: 10px;
+}
+
+.comp-website::before {
+    content: "\f0ac";
+    font-family: Fontawesome;
+    font-size: 14px;
+    color: black;
+    margin-right: 10px;
+}
+
+a.town-link {
+    color: green;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+a.town-link::before {
+    content: ">";
+    border: solid 1px #ccc;
+    color: #838383;
+    padding: 0px 10px 1px 10px;
+    vertical-align: middle;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+div#details {
+    font-size: 16px;
+    width: 100%;
+}
+
+.toggle-btn-wrapper button#toggleButton {
+    background: #f9f9f9;
+    font-size: 16px;
+    padding: 5px 10px 5px 15px;
+    font-weight: 500;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e6e6e6;
+    width: 100%;
+    text-align: left;
+    color: #0d0d0d;
+    border-radius: 5px;
+    box-shadow: 0px 3px 5px #a6a6a6;
+}
+
+
+.contact-info-data {
+  
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    background: #fff;
+}
+.div-container {
+    width: 100%;
+    margin: auto;
+    border: solid 1px #ccc4;
+    margin-top: 30px;
+    padding: 10px;
+}
+.heading-area {
+    width: 100%;
+    display: flex;
+}
+.company-picture {
+    padding-right: 20px;
+    width: 40%;
+}
+
+.description-area {
+    padding-top: 20px;
+}
+.flex-columns {
+    display: flex;
+    width: auto;
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.col-sm-4 {
+    width: 25%;
+    padding: 15px;
+    border-left: solid 1px #d6d6d6;
+}
+.full-description {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.contact-info-data .btn {
+   
+    background: green;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+.contact-info-data .btn a{
+	color:#fff;
+	text-decoration:none;
+
+}
+
+
+.no-schedule-available-header {
+    font-size: 14px;
+  
+}
+
+
+.company-picture img {
+    width: 100%;
+    height: 275px;
+    object-fit: cover;
+}
+
+.opening-hours-wrapper table td {
+    border: solid 1px #bdbdbd;
+    font-size: 16px;
+}
+
+.opening-hours-wrapper table {
+    margin: 0 0 1.5em;
+    width: 100%;
+    background: whitesmoke;
+    border: solid 0px #fff;
+
+}
+
+@media screen and (max-width: 500px) { 
+		.div-container {
+			width: 100%;
+			margin: auto;
+			border: solid 1px #ccc4;
+			margin-top: 30px;
+			padding: 10px;
+		}
+		.heading-area {
+			width: 100%;
+			display: block;
+		}
+		.company-picture {
+			padding-right: 20px;
+			width: 100%;
+		}
+		.company-data-area {
+			width: 100%;
+		}
+	.heading-area .company-picture {
+		padding-right:0px;
+	}
+	
+	.alignleft, .alignright {
+		float: left;
+		display: block;
+		margin-left: 1px;
+		margin-right: 1px;
+	}
+	.opening-hours-wrapper table td 	{
+		border: solid 1px #bdbdbd;
+		font-size: 16px;
+		width: 33.3%;
+	}
+}
+
+@media screen and (min-width:501px ) and ( max-width: 769px) {
+		.alignleft, .alignright {
+			float: left;
+			display: block;
+			margin-left: 1px;
+			margin-right: 1px;
+		}
+		.opening-hours-wrapper table td {
+		border: solid 1px #bdbdbd;
+		font-size: 16px;
+		width: 33.3%;
+	}
+}
+
+
+.firma-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.firma-left-wrapper {
+    width: 33%;
+}
+.firma-right-wrapper {
+    width: 67%;
+    padding-left: 15px;
+}
+.hidden-details {
+    display: none;
+}
+.contact-info-data {
+    padding: 15px;
+    margin-top: 15px;
+}
+
+label.firma-address {
+    width: 100%;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+label.firma-address i {
+    margin-right: 15px;
+}
+.comp-review {
+    margin-top: 15px;
+}
+.near-firma-wrapper {
+    padding: 15px;
+    margin-top: 15px;
+    border: solid 1px #dee2e6;
+    border-radius: 4px;
+}
+.comp-address span {
+    display: block;
+    width: 100%;
+    padding-left: 30px;
+}
+label.near-firma-label {
+    width: 100%;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.nearest-container ul li a {
+    font-size: 16px;
+}
+.nearest-container ul {
+    list-style: none;
+    margin-left: 35px;
+}
+label.near-firma-label i {
+    margin-right: 15px;
+}
+.comp-review span {
+    width: 100%;
+    padding-left: 30px;
+    color: #d8b70b;
+    display: block;
+    margin-bottom: 15px;
+}
+.comp-review span i {
+    padding-right: 10px;
+}
+.claim-listing-btn a {
+    font-weight: bold;
+    color: white;
+    border-radius: 2rem;
+    cursor: pointer;
+    width: 30%;
+    height: 35.66px;
+    border: none;
+    background-color: #00ab36;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+.firma-header h2 {
+    margin-bottom: 10px;
+}
+
+.full-map-area h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+.firma-header h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.claimed-wrapper {
+    font-size: 14px;
+    display: inline-block;
+    background: #d8b70b;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.claimed-wrapper i {
+    color: #ffffff;
+    margin-right: 5px;
+}
+.firma-header {
+    padding-bottom: 10px;
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 15px;
+}
+.other-details-wrapper h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+.firma-header {
+    padding-bottom: 10px;
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 15px;
+}
+.no-schedule-available-header {
+    font-size: 14px;
+    font-style: italic;
+}
+.no-schedule-available, .no-other-details {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.unclaimed-message, .claimed-message {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+}
+@media screen and (max-width: 500px) {
+    .firma-wrapper {
+        display: block;
+        padding: 20px;
+    }
+    .firma-left-wrapper {
+        width: 100%;
+    }
+    
+    .firma-right-wrapper {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .claim-listing-btn a {
+        width:100%;
+    }
+
+}
+
+@media screen and ( min-width:501px) and (max-width: 769px) { 
+
+    .firma-wrapper {
+        padding: 20px;
+    }
+    .claim-listing-btn a {
+        width:100%;
+    }
+}
+
+
+a.town-link::before {
+    content: "\f100";
+    font-family: 'FontAwesome';
+    color: #121212;
+    vertical-align: top;
+    margin-right: 10px;
+}
+
+a.town-link {
+    color: #121212;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.directory-town-wrapper {
+    border-radius: 4px;
+    border: none;
+    background: #fff;
+    padding: 0 20px;
+}
+.firma-wrapper {
+    padding: 0 20px;
+}
+.opening-hours-wrapper h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+.opening-hours-wrapper h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+.opening-hours-wrapper table tr:nth-child(even) {
+    background: #bcbcbc3b;
+}
+
+.opening-hours-wrapper table td {
+    border: solid 1px #ededed;
+    font-size: 15px;
+    padding: 5px;
+    text-transform: lowercase;
+}
+
+.search-results {
+    background: whitesmoke;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.fa-location-dot:before {
+    content: "\f3c5";
+    font-family: Fontawesome;
+    margin-right: 10px;
+}
+
+.fa-phone:before {
+    content: "\f095";
+    font-family: Fontawesome;
+    margin-right: 10px;
+}
+
+button.num-btn {
+    background: #909090;
+    border-radius: 2px;
+}
+
+.address-area {
+    background: #909090;
+    border-radius: 2px;
+}
+
+.btn-area {
+    width: auto;
+    display: inline;
+}
+/* Add this CSS to your theme stylesheet or in the WordPress Customizer */
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-wrapper a {
+    padding: 10px;
+    text-decoration: none;
+    background-color: #f2f2f2;
+    margin: 0 5px;
+    border-radius: 5px;
+    color: #333;
+}
+
+.pagination-wrapper a:hover {
+    background-color: #0073e5;
+    color: #fff;
+}
+
+.pagination-wrapper .current {
+    background-color: #0073e5;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.pagination-wrapper .dots {
+    padding: 10px;
+}
+
+.firma-schedule-today {
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.comp-phone {
+    margin-bottom: 15px;
+}
+.comp-website {
+    margin-bottom: 15px;
+}
+
+.comp-facebook {
+    margin-bottom: 15px;
+}
+
+.firma-schedule-today i {
+    margin-right: 15px;
+}
+
+.comp-btn a:hover, .claim-listing-btn a:hover {
+    color: white !important;
+}
+
+body.search-results {
+    padding: 0 !important;
+}
+
+input#s {
+    width: 85%;
+}
+.search-radios {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.radio-wrap {
+    padding: 15px 30px 15px 0;
+}
+
+.radio-wrap label {
+    font-size: 20px;
+}
+
+.alert {
+    padding: 15px;
+    border: 1px solid;
+    border-radius: 4px;
+    margin: 20px;
+}
+.alert-success {
+    color: green;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.alert-failed {
+    color: red;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
