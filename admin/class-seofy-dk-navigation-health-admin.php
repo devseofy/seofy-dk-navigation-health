@@ -1845,7 +1845,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 	
 	public function load_custom_single_template($template) {
 		if (is_singular(array('kiropraktor', 'fysioterapeut', 'akupunktur', 'massoer', 'zoneterapi', 'osteopat'))) {
-			$custom_template = get_template_directory() . '/single-health-directory.php';
+			$custom_template = plugin_dir_path(__FILE__) . 'templates/single-health-directory.php';
 			if (file_exists($custom_template)) {
 				return $custom_template;
 			}
