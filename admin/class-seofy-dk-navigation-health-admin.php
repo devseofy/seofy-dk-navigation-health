@@ -92,6 +92,8 @@ class Seofy_Dk_Navigation_Health_Admin {
 		add_action('init', array($this,'export_json_route'));
 		add_action('init', array($this, 'register_health_category_post_types'));
 
+		add_filter('template_include', array($this,  'load_custom_single_template'));
+
 	}	
 
 	/**
@@ -1841,6 +1843,16 @@ class Seofy_Dk_Navigation_Health_Admin {
 		
 	}
 	
+	public function load_custom_single_template($template) {
+		if (is_singular(array('kiropraktor', 'fysioterapeut', 'akupunktur', 'massoer', 'zoneterapi', 'osteopat'))) {
+			$custom_template = get_template_directory() . '/single-health-directory.php';
+			if (file_exists($custom_template)) {
+				return $custom_template;
+			}
+		}
+		return $template;
+	}
+
 	
 
 }
