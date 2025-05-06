@@ -84,7 +84,7 @@ get_header(); ?>
                         </div>
                         <?php if ($data_email != ""){ ?>
                         <div class="claim-listing-btn">
-                            <div class="btn"><a target="_blank" href="<?php echo $wordpress_url; ?>/kontakt-firma?firma_id=<?php echo get_the_ID(); ?>"> Kontakt Firma </a></div>
+                            <div><a class="btn" target="_blank" href="<?php echo $wordpress_url; ?>/kontakt-firma?firma_id=<?php echo get_the_ID(); ?>"> Kontakt Firma </a></div>
                         
                         </div>
                         <?php } ?>
@@ -108,7 +108,13 @@ get_header(); ?>
                         </div>
                         <div class="near-firma-wrapper">
                             <div class="near-firma">
-                                <label class="near-firma-label"> <i class="fa-solid fa-location-arrow"></i> Nærmeste  <?php echo $category; ?></label>
+                            <?php 
+                            $post_type_obj = get_post_type_object(get_post_type());
+                            $post_type_label = $post_type_obj ? $post_type_obj->labels->singular_name : '';
+                            ?>
+                            <label class="near-firma-label">
+                                <i class="fa-solid fa-location-arrow"></i> Nærmeste <?php echo esc_html($post_type_label); ?>
+                            </label>
                                 <div class="nearest-firmas">
                                 <?php echo do_shortcode("[town_nearest_companies region='".$region."' postal_code='".$postal_code."']"); wp_reset_postdata(); ?>
                                 </div>
@@ -120,13 +126,19 @@ get_header(); ?>
                             <h2><?php echo  $post_title; ?></h3>
                             <div class="claim-listing-btn">
                                 <?php if ($is_claimed === "no" || $is_claimed == ""){ ?>
-                                    <div class="btn"><a target="_blank" href="<?php echo $wordpress_url; ?>/gor-krav-pa-din-virksomhed?firma_id=<?php echo get_the_ID(); ?>"> Gør krav på denne virksomhed</a></div>
+                                    <div ><a class="btn" target="_blank" href="<?php echo $wordpress_url; ?>/gor-krav-pa-din-virksomhed?firma_id=<?php echo get_the_ID(); ?>"> Gør krav på denne virksomhed</a></div>
                                 <?php } else { ?>
                                     <div class="claimed-wrapper">  <i class="fa-solid fa-circle-check"></i> Hævdede </div>
                                 <?php } ?>
                             </div>
                             <div class="firma-category">
-                                <div class="comp-category"><i class="fa-solid fa-tag"></i> <?php echo $category; ?></div>
+                                <?php 
+                                $categories = explode(',', $category); // Split by comma
+                                foreach ($categories as $cat): ?>
+                                    <div class="comp-category">
+                                        <i class="fa-solid fa-tag"></i> <?php echo htmlspecialchars(trim($cat)); ?>
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
 
                             
