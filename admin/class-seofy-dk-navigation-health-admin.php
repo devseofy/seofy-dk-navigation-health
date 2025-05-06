@@ -345,9 +345,6 @@ class Seofy_Dk_Navigation_Health_Admin {
 			// You can access the posts using $custom_post_array[$key]
 		}
 
-		//echo '<pre>';
-		//print_r($custom_post_array);
-		//echo '</pre>';
 
 
 
@@ -1396,7 +1393,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 	
 	}
 
-	private function search_post_by_region_and_town_for_list($region, $postal_code) {
+	private function search_post_by_region_and_town_for_list($category, $postal_code) {
 		// Load the CSV file	// Define the path to the CSV file
 		$csv_file_path = plugin_dir_path(__FILE__) . 'postal_codes_new.csv';
 	
@@ -1460,6 +1457,36 @@ class Seofy_Dk_Navigation_Health_Admin {
 	
 	}
 
+	private function search_region_from_csv($town) {
+		// Load the CSV file	// Define the path to the CSV file
+		$csv_file_path = plugin_dir_path(__FILE__) . 'postal_codes_new.csv';
+	
+		// Check if the CSV file exists
+		if (file_exists($csv_file_path)) {
+			$csv_data = $this->read_csv_with_utf8_bom($csv_file_path);
+		
+		
+			// Find the row with the matching postal code
+			$matching_row = array_filter($csv_data, function($row) use ($town) {
+				return $row[1] == $town;
+			});
+
+			
+		
+			// If no matching row is found, return or handle accordingly
+			if (empty($matching_row)) {
+				return;
+			}
+		
+			$matching_row = reset($matching_row);
+		
+			$region_name = $matching_row[5];
+			return $region_name;
+
+		}
+	
+	}
+
 	private function search_town_by_postal_code($postal_code) {
 		// Load the CSV file	// Define the path to the CSV file
 		$csv_file_path = plugin_dir_path(__FILE__) . 'postal_codes_new.csv';
@@ -1503,16 +1530,14 @@ class Seofy_Dk_Navigation_Health_Admin {
 		), $atts);
 		
 		$town = $this->search_post_by_region_and_town_for_list("Region ".$atts['region'], $atts['postal_code']);
+		$region = $this->search_region_from_csv($town);
+
 		$postal_codes = array();
 
-		echo '<pre>';
-		print_r($town);
-		echo '</pre>';
-		$postal_codes = $this->getAllPostalCodesFromCSV($town, "Region ".$atts['region']);
 
-		echo '<pre>';
-		print_r($postal_codes );
-		echo '</pre>';
+		$postal_codes = $this->getAllPostalCodesFromCSV($town, $region);
+
+
 		//print_r ($postal_codes);
 		if (!empty($postal_codes)){
 
