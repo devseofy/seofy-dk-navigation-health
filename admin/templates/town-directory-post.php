@@ -9,6 +9,7 @@
         </div>
         <div class="col-sm">
             <div class="comp-name"><h3><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3></div>
+            <div class="comp-address"><p>Adresse: <?php echo get_post_meta(get_the_ID(), '_street_name', true) . ' ' . get_post_meta(get_the_ID(), '_street_number', true) . '<br>' . get_post_meta(get_the_ID(), '_postal_code', true) . ' ' . get_post_meta(get_the_ID(), '_postal_area', true); ?></p></div>
             <?php $category = get_post_meta(get_the_ID(), '_directory_category', true); ?>
             <div class="firma-category">
                 <?php 
@@ -20,7 +21,6 @@
                 <?php endforeach; ?>
 
             </div>
-            <div class="comp-address"><p>Adresse: <?php echo get_post_meta(get_the_ID(), '_street_name', true) . ' ' . get_post_meta(get_the_ID(), '_street_number', true) . '<br>' . get_post_meta(get_the_ID(), '_postal_code', true) . ' ' . get_post_meta(get_the_ID(), '_postal_area', true); ?></p></div>
         </div>
     </div>
     <div class="schedule-area">

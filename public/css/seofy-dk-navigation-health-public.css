@@ -850,3 +850,13 @@ input#s {
     display: flex;
     gap: 15px;
 }
+
+div#town-directory-container .comp-category {
+    margin: 0;
+}
+
+div#town-directory-container .firma-category {
+    display: flex;
+    gap: 10px 20px;
+    flex-wrap: wrap;
+}
