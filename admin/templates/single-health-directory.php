@@ -52,9 +52,9 @@ get_header(); ?>
                 $post_type = get_post_type(); // Get post type slug
                 $post_type_obj = get_post_type_object($post_type);
                 $post_type_label = $post_type_obj ? $post_type_obj->labels->singular_name : '';
-                print_r($post_type);
-                print_r($post_type_obj);
-                print_r($post_type_label);
+                //print_r($post_type);
+                //print_r($post_type_obj);
+                //print_r($post_type_label);
                 $databank_id_value = get_post_meta(get_the_ID(), $databank_id_field, true);
                     echo do_shortcode("[town_page region='".$region."' postal_code='".$postal_code."' category='".$post_type."']");
                     wp_reset_postdata();
