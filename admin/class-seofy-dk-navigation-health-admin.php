@@ -918,7 +918,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 		$paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
 	
 		$args = array(
-			'post_type' => 'post',
+			'post_type' => array('post', 'kiropraktor', 'fysioterapeut', 'akupunktur', 'massoer', 'zoneterapi', 'osteopat'),
 			'posts_per_page' => 10,
 			'paged' => $paged,
 			'meta_query' => array(

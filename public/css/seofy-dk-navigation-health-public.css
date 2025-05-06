@@ -594,10 +594,6 @@ label.near-firma-label i {
     margin-bottom: 15px;
     margin-top: 30px;
 }
-.firma-header h2 {
-    font-size: 25px;
-    font-weight: bold;
-}
 
 .claimed-wrapper {
     font-size: 14px;
@@ -684,6 +680,7 @@ a.town-link {
     color: #121212;
     font-size: 22px;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .directory-town-wrapper {
