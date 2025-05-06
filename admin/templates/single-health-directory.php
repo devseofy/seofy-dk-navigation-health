@@ -108,15 +108,19 @@ get_header(); ?>
                         </div>
                         <div class="near-firma-wrapper">
                             <div class="near-firma">
-                            <?php 
-                            $post_type_obj = get_post_type_object(get_post_type());
-                            $post_type_label = $post_type_obj ? $post_type_obj->labels->singular_name : '';
-                            ?>
-                            <label class="near-firma-label">
-                                <i class="fa-solid fa-location-arrow"></i> Nærmeste <?php echo esc_html($post_type_label); ?>
-                            </label>
+                                <?php 
+                                $post_type = get_post_type(); // Get post type slug
+                                $post_type_obj = get_post_type_object($post_type);
+                                $post_type_label = $post_type_obj ? $post_type_obj->labels->singular_name : '';
+                                ?>
+                                <label class="near-firma-label">
+                                    <i class="fa-solid fa-location-arrow"></i> Nærmeste <?php echo esc_html($post_type_label); ?>
+                                </label>
                                 <div class="nearest-firmas">
-                                <?php echo do_shortcode("[town_nearest_companies region='".$region."' postal_code='".$postal_code."']"); wp_reset_postdata(); ?>
+                                    <?php 
+                                    echo do_shortcode("[town_nearest_companies region='" . esc_attr($region) . "' postal_code='" . esc_attr($postal_code) . "' health_category='" . esc_attr($post_type) . "']");
+                                    wp_reset_postdata(); 
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -132,13 +136,14 @@ get_header(); ?>
                                 <?php } ?>
                             </div>
                             <div class="firma-category">
-                                <?php 
-                                $categories = explode(',', $category); // Split by comma
-                                foreach ($categories as $cat): ?>
-                                    <div class="comp-category">
-                                        <i class="fa-solid fa-tag"></i> <?php echo htmlspecialchars(trim($cat)); ?>
-                                    </div>
-                                <?php endforeach; ?>
+                            <?php 
+                            $categories = explode(',', $category); // Split by comma
+                            foreach ($categories as $cat): ?>
+                                <div class="comp-category">
+                                    <i class="fa-solid fa-tag"></i> <?php echo html_entity_decode(trim($cat)); ?>
+                                </div>
+                            <?php endforeach; ?>
+
                             </div>
 
                             

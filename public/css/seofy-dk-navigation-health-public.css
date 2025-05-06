@@ -207,7 +207,7 @@ div#town-names-wrapper a {
     font-size: 16px;
 }
 .comp-category {
-    width: 100%;
+    width: auto;
     display: block;
     font-size: 16px;
     font-weight: bold;
@@ -849,3 +849,7 @@ input#s {
     border-color: #f5c6cb;
 }
 
+.firma-category {
+    display: flex;
+    gap: 15px;
+}

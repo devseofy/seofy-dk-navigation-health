@@ -1499,6 +1499,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 		$atts = shortcode_atts(array(
 			'region' => '', 
 			'postal_code' => '',
+			'health_category' => ''
 		), $atts);
 		
 		$town = $this->search_post_by_region_and_town_for_list("Region ".$atts['region'], $atts['postal_code']);
@@ -1512,7 +1513,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 
 			
 			$args = array(
-				'post_type' => 'post',
+				'post_type' => $health_category,
 				'posts_per_page' => 10,
 				'orderby'        => 'rand', // Order by random
 				'meta_query'     => array(
