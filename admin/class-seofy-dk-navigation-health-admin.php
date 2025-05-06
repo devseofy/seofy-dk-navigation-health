@@ -1530,12 +1530,17 @@ class Seofy_Dk_Navigation_Health_Admin {
 		), $atts);
 		
 		$town = $this->search_post_by_region_and_town_for_list("Region ".$atts['region'], $atts['postal_code']);
+
+		echo $town;
 		$region = $this->search_region_from_csv($town);
 
+		echo $region;
 		$postal_codes = array();
 
 
 		$postal_codes = $this->getAllPostalCodesFromCSV($town, $region);
+
+		print_r($postal_codes);
 
 
 		//print_r ($postal_codes);

@@ -49,11 +49,17 @@ get_header(); ?>
                 $is_claimed = get_post_meta(get_the_ID(), '_is_claimed', true);
                 $other_details = get_post_meta(get_the_ID(), '_other_details', true);
                 $databank_id_field = '_databank_id'; // Replace with the key of your custom field
-
+                $post_type = get_post_type(); // Get post type slug
+                $post_type_obj = get_post_type_object($post_type);
+                $post_type_label = $post_type_obj ? $post_type_obj->labels->singular_name : '';
+                print_r($post_type);
+                print_r($post_type_obj);
+                print_r($post_type_label);
                 $databank_id_value = get_post_meta(get_the_ID(), $databank_id_field, true);
-                    echo do_shortcode("[town_page region='".$region."' postal_code='".$postal_code."' category='".$category."']");
+                    echo do_shortcode("[town_page region='".$region."' postal_code='".$postal_code."' category='".$post_type."']");
                     wp_reset_postdata();
             ?>
+
 
             <?php 
 
@@ -108,17 +114,13 @@ get_header(); ?>
                         </div>
                         <div class="near-firma-wrapper">
                             <div class="near-firma">
-                                <?php 
-                                $post_type = get_post_type(); // Get post type slug
-                                $post_type_obj = get_post_type_object($post_type);
-                                $post_type_label = $post_type_obj ? $post_type_obj->labels->singular_name : '';
-                                ?>
+
                                 <label class="near-firma-label">
                                     <i class="fa-solid fa-location-arrow"></i> Nærmeste <?php echo esc_html($post_type_label); ?>
                                 </label>
                                 <div class="nearest-firmas">
                                     <?php 
-                                    echo do_shortcode("[town_nearest_companies region='" . esc_attr($region) . "' postal_code='" . esc_attr($postal_code) . "' health_category='" . esc_attr($post_type) . "']");
+                                    echo do_shortcode("[town_nearest_companies postal_code='" . esc_attr($postal_code) . "' health_category='" . esc_attr($post_type) . "']");
                                     wp_reset_postdata(); 
                                     ?>
                                 </div>
