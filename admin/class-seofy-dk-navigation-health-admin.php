@@ -60,6 +60,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 		add_shortcode('town_page', array( $this,'town_page_link_shortcode'));
 		add_shortcode('town_list', array( $this,'town_list_shortcode'));
 		add_shortcode('town_nearest_companies', array( $this,'town_nearest_companies_shortcode'));
+		add_shortcode('town_directory_categories', array($this, 'display_town_directory_categories'));
 		add_action('category_add_form_fields', array ( $this,'add_category_shortcode_field'));
 		add_action('category_edit_form_fields', array ( $this,'edit_category_shortcode_field'));
 		add_action('edited_category', array ( $this,'save_category_shortcode_field'));
@@ -1851,6 +1852,89 @@ class Seofy_Dk_Navigation_Health_Admin {
 		return $template;
 	}
 
+	public function display_town_directory_categories() {
+		global $post; // Needed to get the current post context
+		ob_start();
 	
+		// Get current post's metadata
+		$postal_code = get_post_meta($post->ID, '_tn_postal_code', true);
+		$region = get_post_meta($post->ID, '_tn_region', true);
+		$town = get_post_meta($post->ID, '_tn_town', true);
+		$municipality = get_post_meta($post->ID, '_tn_municipality', true);
+	
+		// Build dynamic meta query
+		$meta_query = array('relation' => 'AND');
+		if (!empty($postal_code)) {
+			$meta_query[] = array(
+				'key'     => '_tn_postal_code',
+				'value'   => $postal_code,
+				'compare' => '='
+			);
+		}
+		if (!empty($region)) {
+			$meta_query[] = array(
+				'key'     => '_tn_region',
+				'value'   => $region,
+				'compare' => '='
+			);
+		}
+		if (!empty($town)) {
+			$meta_query[] = array(
+				'key'     => '_tn_town',
+				'value'   => $town,
+				'compare' => '='
+			);
+		}
+		if (!empty($municipality)) {
+			$meta_query[] = array(
+				'key'     => '_tn_municipality',
+				'value'   => $municipality,
+				'compare' => '='
+			);
+		}
+	
+		// WP Query args
+		$args = array(
+			'post_type'      => 'by',
+			'posts_per_page' => -1,
+			'post__not_in'   => array($post->ID), // Exclude the current post
+			'tax_query'      => array(
+				array(
+					'taxonomy' => 'town_taxonomy',
+					'field'    => 'slug',
+					'terms'    => 'main-by',
+					'operator' => 'NOT IN',
+				),
+			),
+			'meta_query'     => $meta_query,
+		);
+	
+		$query = new WP_Query($args);
+	
+		if ($query->have_posts()) {
+			echo '<div class="town-directory-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;">';
+	
+			while ($query->have_posts()) {
+				$query->the_post();
+				$post_id = get_the_ID();
+	
+				$cat = get_post_meta($post_id, '_tn_category', true);
+				$image_url = plugin_dir_url(__FILE__) . 'images/' . esc_attr($cat) . '-behandler.jpg';
+				$permalink = get_permalink($post_id);
+				$town_name = get_post_meta($post_id, '_tn_town', true);
+	
+				echo '<a href="' . esc_url($permalink) . '" class="town-grid-item">';
+				echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($town_name) . '" style="width:100%;height:auto;">';
+				echo '</a>';
+			}
+	
+			echo '</div>';
+			wp_reset_postdata();
+		} else {
+			echo '<p>No related towns found.</p>';
+		}
+	
+		return ob_get_clean();
+	}
 
 }
