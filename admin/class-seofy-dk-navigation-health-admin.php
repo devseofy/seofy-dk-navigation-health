@@ -878,7 +878,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 		if (!empty($postal_codes)){
 
 
-			wp_enqueue_script('town-directory-ajax', plugin_dir_url( __FILE__ )  . '/js/town-directory-ajax.js', array('jquery'), null, true);
+			wp_enqueue_script('town-directory-ajax', plugin_dir_url( __FILE__ )  . '/js/town-directory-ajax.js', array('jquery'), $this->version, false);
 			wp_localize_script('town-directory-ajax', 'ajax_pagination_params', array(
 				'ajax_url' => admin_url('admin-ajax.php'),
 				'posts_per_page' => 12,
