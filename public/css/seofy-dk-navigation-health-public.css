@@ -155,7 +155,15 @@ div#town-directory-container {
     color: #555;
     margin: 10px 0 0;
     line-height: 1.6;
+    font-weight: 600;
 }
+.company-shortdesc{
+    font-size: 0.95rem;
+    color: #555;
+    margin: 10px 0 0;
+    line-height: 1.6;
+}
+
 
 .company-categories {
     margin-top: 15px;

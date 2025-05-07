@@ -18,7 +18,7 @@
             <p class="company-address">
                 <?php echo get_post_meta(get_the_ID(), '_street_name', true) . ' ' . get_post_meta(get_the_ID(), '_street_number', true) . '<br>' . get_post_meta(get_the_ID(), '_postal_code', true) . ' ' . get_post_meta(get_the_ID(), '_postal_area', true); ?>
             </p>
-            <p>
+            <p class="company-shortdesc">
                 <?php echo get_post_meta(get_the_ID(), 'rank_math_description', true); ?>
             </p>
             <div class="company-categories">
