@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://seofy.dk
- * @since             1.0.24
+ * @since             1.0.25
  * @package           Seofy_Dk_Navigation_Health
  *
  * @wordpress-plugin
  * Plugin Name:       Seofy DK Navigation Health
  * Plugin URI:        https://seofy.dk
  * Description:       Seofy DK Navigation for Health is a specialized WordPress plugin designed to improve website navigation and user experience for health and wellness websites. This powerful tool enables clinic owners, healthcare professionals, and developers to create dynamic, accessible, and customizable navigation menus that help users easily find the health services, practitioners, and information they need.
- * Version:           1.0.24
+ * Version:           1.0.25
  * Author:            Jonard Aragon
  * Author URI:        https://seofy.dk/
  * License:           GPL-2.0+
@@ -32,10 +32,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version.
- * Start at version 1.0.24 and use SemVer - https://semver.org
+ * Start at version 1.0.25 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'SEOFY_DK_NAVIGATION_HEALTH_VERSION', '1.0.24' );
+define( 'SEOFY_DK_NAVIGATION_HEALTH_VERSION', '1.0.25' );
 
 /**
  * The code that runs during plugin activation.
@@ -71,7 +71,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-seofy-dk-navigation-health
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.24
+ * @since    1.0.25
  */
 function run_seofy_dk_navigation_health() {
 
