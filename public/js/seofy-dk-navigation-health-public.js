@@ -35,20 +35,20 @@
 	
 			const startingChar = $(this).data('starting-char');
 	
-			// Highlight the selected letter
 			$('.towns__letter').removeClass('active');
 			$(this).addClass('active');
 	
 			$('.towns__item').each(function () {
 				const townName = $(this).data('town-name');
 				if (townName && townName.startsWith(startingChar)) {
-					$(this).fadeIn();
+					$(this).fadeIn(200);
 				} else {
-					$(this).fadeOut();
+					$(this).fadeOut(200);
 				}
 			});
 		});
 	});
+	
 	
 
 })( jQuery );
