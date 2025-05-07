@@ -99,151 +99,129 @@
 }
 
 
-#town-directory-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
-}
-
-.company-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.company-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.company-list-row {
     display: flex;
-    align-items: stretch;
-}
-
-.company-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.company-thumbnail {
-    flex: 0 0 200px;
+    flex-direction: column;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     overflow: hidden;
+}
+
+.company-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+    align-items: flex-start;
 }
 
 .company-thumbnail img {
+    border-radius: 6px;
+    max-width: 220px;
     width: 100%;
-    height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    filter: grayscale(0.1);
+    transition: filter 0.3s;
 }
-
-.company-card:hover .company-thumbnail img {
-    transform: scale(1.05);
+.company-thumbnail img:hover {
+    filter: grayscale(0);
 }
 
 .company-info {
-    padding: 1.5rem;
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.company-name {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    min-width: 250px;
 }
 
 .company-name a {
-    color: #2d3748;
+    font-size: 1.25rem;
+    color: #2c3e50;
     text-decoration: none;
-    transition: color 0.2s ease;
+    font-weight: 600;
+    transition: color 0.2s;
 }
-
 .company-name a:hover {
-    color: #3b82f6;
+    color: #1e70bf;
 }
 
 .company-address {
-    font-size: 0.9rem;
-    color: #6b7280;
-    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: #555;
+    margin: 10px 0 0;
+    line-height: 1.6;
 }
 
 .company-categories {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-top: 15px;
 }
-
 .category-tag {
-    background: #e5e7eb;
-    color: #4b5563;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1e70bf;
+    background: #eef4fa;
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin-right: 8px;
+    margin-bottom: 8px;
 }
 
 .company-schedule {
-    font-size: 0.9rem;
-    color: #6b7280;
-    margin-bottom: 1rem;
+    min-width: 200px;
+    text-align: center;
+    flex-shrink: 0;
 }
 
-.closed-label {
-    color: #dc2626;
-    font-weight: 500;
-}
-
-.close-open {
-    color: #374151;
-}
-
-.no-schedule-available-header {
-    color: #6b7280;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.contact-row {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.contact-button {
-    background: #3b82f6;
-    color: white;
-    padding: 0.5rem 1.5rem;
+.contact-button a {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 25px;
+    font-size: 0.95rem;
+    background-color: #1e70bf;
+    color: #fff;
     border-radius: 6px;
     text-decoration: none;
-    font-size: 0.9rem;
     font-weight: 500;
-    transition: background 0.2s ease;
+    transition: background-color 0.3s;
+}
+.contact-button a:hover {
+    background-color: #155a99;
 }
 
-.contact-button:hover {
-    background: #2563eb;
+/* Open/closed labels */
+.open-label,
+.close-open-label.open-color {
+    color: #2ecc71;
+    font-weight: bold;
+}
+.closed-label,
+.close-open-label.closed-color {
+    color: #e74c3c;
+    font-weight: bold;
 }
 
+/* Map styling */
+.company-map iframe {
+    width: 100%;
+    height: 210px;
+    border: none;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .company-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .company-card {
+    .company-content {
         flex-direction: column;
+        padding: 15px;
     }
-
-    .company-thumbnail {
-        flex: 0 0 auto;
-        height: 200px;
+    .company-thumbnail img {
+        max-width: 100%;
+    }
+    .company-schedule {
+        width: 100%;
+        text-align: left;
+        margin-top: 15px;
     }
 }
 

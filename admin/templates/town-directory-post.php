@@ -1,11 +1,11 @@
 <div class="company-list-row">
-    <div class="company-main-content">
+    <div class="company-content">
         <div class="company-thumbnail">
             <a href="<?php echo get_the_permalink(); ?>">
                 <?php echo get_the_post_thumbnail(get_the_ID(), 'medium'); ?>
             </a>
         </div>
-        <div class="company-info-section">
+        <div class="company-info">
             <h3 class="company-name">
                 <a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a>
             </h3>
@@ -19,14 +19,24 @@
                     <span class="category-tag"><i class="fa-solid fa-tag"></i> <?php echo html_entity_decode(trim($cat)); ?></span>
                 <?php endforeach; ?>
             </div>
-
-            <div class="company-schedule">
-                <?php echo do_shortcode('[seofy_opening_hours_current]'); ?>
-            </div>
-
-            <div class="contact-row">
-                <a href="<?php echo get_the_permalink(); ?>" class="contact-button">Kontakt</a>
+        </div>
+        <div class="company-schedule">
+            <?php echo do_shortcode('[seofy_opening_hours_current]'); ?>
+            <div class="contact-button">
+                <a href="<?php echo get_the_permalink(); ?>">Kontakt</a>
             </div>
         </div>
+    </div>
+    <div class="company-map">
+        <iframe 
+            width="100%" 
+            height="210" 
+            frameborder="0" 
+            scrolling="no" 
+            marginheight="0" 
+            marginwidth="0" 
+            loading="async"
+            src="https://maps.google.com/maps?q=<?php echo get_post_meta(get_the_ID(), '_lat_map', true); ?>,<?php echo get_post_meta(get_the_ID(), '_lon_map', true); ?>&hl=da&z=14&amp;output=embed"
+        ></iframe>
     </div>
 </div>
