@@ -1281,7 +1281,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 	private function search_post_by_region_and_town($region, $postal_code, $category) {
 		// Load the CSV file	// Define the path to the CSV file
 		$csv_file_path = plugin_dir_path(__FILE__) . 'postal_codes_new.csv';
-	
+		$output = '';
 		// Check if the CSV file exists
 		if (file_exists($csv_file_path)) {
 			$csv_data = $this->read_csv_with_utf8_bom($csv_file_path);
@@ -1330,17 +1330,17 @@ class Seofy_Dk_Navigation_Health_Admin {
 			if ($query->have_posts()) {
 				while ($query->have_posts()) {
 					$query->the_post();
-					// Process each found post as needed
 					$post_id = get_the_ID();
-					// Do something with $post_id
-					echo '<div class="directory-town-wrapper">';
-					echo '<a class="town-link" href="'.get_the_permalink().'">'.$category.' '.$town_name.' </a>';
-					echo '</div>';
+					$output .= '<div class="directory-town-wrapper">';
+					$output .= '<a class="town-link" href="'.get_the_permalink().'">'.$category.' '.$town_name.'</a>';
+					$output .= '</div>';
 				}
-				wp_reset_postdata(); // Reset the post data to the main query
-			} 
+				wp_reset_postdata();
+			}
 
 		}
+
+		return $output;
 	
 	}
 
