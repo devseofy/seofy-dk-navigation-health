@@ -437,171 +437,128 @@ div#details {
 
 .firma-wrapper {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
 }
 
-.firma-left-wrapper {
-    width: 33%;
-}
+.firma-left-wrapper,
 .firma-right-wrapper {
-    width: 67%;
-    padding-left: 15px;
-}
-.hidden-details {
-    display: none;
-}
-.contact-info-data {
-    padding: 15px;
-    margin-top: 15px;
+    flex: 1 1 100%;
 }
 
-label.firma-address {
+@media (min-width: 768px) {
+    .firma-left-wrapper {
+        flex: 1 1 35%;
+    }
+
+    .firma-right-wrapper {
+        flex: 1 1 60%;
+    }
+}
+
+.firma-image img {
     width: 100%;
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 15px;
+    border-radius: 10px;
 }
-label.firma-address i {
-    margin-right: 15px;
+
+.firma-schedule-today,
+.contact-info-data,
+.near-firma-wrapper,
+.claim-listing-btn,
+.other-details-wrapper,
+.full-map-area {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
-.comp-review {
-    margin-top: 15px;
-}
-.near-firma-wrapper {
-    padding: 15px;
-    margin-top: 15px;
-    border: solid 1px #dee2e6;
-    border-radius: 4px;
-}
-.comp-address span {
-    display: block;
-    width: 100%;
-    padding-left: 30px;
-}
-label.near-firma-label {
-    width: 100%;
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-.nearest-container ul li a {
-    font-size: 16px;
-}
-.nearest-container ul {
-    list-style: none;
-    margin-left: 35px;
-}
-label.near-firma-label i {
-    margin-right: 15px;
-}
-.comp-review span {
-    width: 100%;
-    padding-left: 30px;
-    color: #d8b70b;
-    display: block;
-    margin-bottom: 15px;
-}
-.comp-review span i {
-    padding-right: 10px;
-}
+
 .claim-listing-btn a {
-    font-weight: bold;
-    color: white;
-    border-radius: 2rem;
-    cursor: pointer;
-    width: 30%;
-    height: 35.66px;
-    border: none;
-    background-color: #00ab36;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
+    display: inline-block;
+    background: #007f5f;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-align: center;
+    transition: background 0.3s;
+    text-decoration: none;
 }
-.firma-header h2 {
-    margin-bottom: 10px;
+.claim-listing-btn a:hover {
+    background: #005f45;
 }
 
-.full-map-area h4 {
-    font-size: 20px;
+.comp-address span,
+.comp-review span {
+    display: block;
+    margin-left: 1.5rem;
+}
+
+label.firma-address,
+label.near-firma-label {
     font-weight: bold;
-    margin-bottom: 15px;
-    margin-top: 30px;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 1rem;
 }
 
 .claimed-wrapper {
-    font-size: 14px;
     display: inline-block;
-    background: #d8b70b;
-    padding: 5px 10px;
+    background-color: #555;
     color: white;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.875rem;
     border-radius: 5px;
-    font-weight: bold;
-}
-.claimed-wrapper i {
-    color: #ffffff;
-    margin-right: 5px;
-}
-.firma-header {
-    padding-bottom: 10px;
-    border-bottom: solid 1px #ddd;
-    margin-bottom: 15px;
-}
-.other-details-wrapper h4 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    margin-top: 30px;
-}
-.firma-header {
-    padding-bottom: 10px;
-    border-bottom: solid 1px #ddd;
-    margin-bottom: 15px;
-}
-.no-schedule-available-header {
-    font-size: 14px;
-    font-style: italic;
-}
-.no-schedule-available, .no-other-details {
-    font-size: 14px;
-    font-style: italic;
+    margin-top: 0.5rem;
 }
 
-.unclaimed-message, .claimed-message {
+.firma-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.firma-category .comp-category {
+    display: inline-block;
+    background-color: #e5e7eb;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+    margin-right: 0.5rem;
+    font-size: 0.875rem;
+    color: #111827;
+}
+
+.entry-content {
+    padding-top: 1rem;
+}
+
+.full-map-area iframe {
+    border: none;
+    border-radius: 8px;
+}
+
+.unclaimed-message,
+.claimed-message {
+    margin-top: 2rem;
     text-align: center;
-    font-size: 14px;
-    margin-top: 30px;
-}
-@media screen and (max-width: 500px) {
-    .firma-wrapper {
-        display: block;
-        padding: 20px;
-    }
-    .firma-left-wrapper {
-        width: 100%;
-    }
-    
-    .firma-right-wrapper {
-        width: 100%;
-        margin-left: 0px;
-    }
-    .claim-listing-btn a {
-        width:100%;
-    }
-
+    font-size: 0.9rem;
+    color: #555;
 }
 
-@media screen and ( min-width:501px) and (max-width: 769px) { 
-
-    .firma-wrapper {
-        padding: 20px;
-    }
-    .claim-listing-btn a {
-        width:100%;
-    }
+.other-details-content,
+.no-other-details {
+    margin-top: 0.5rem;
+    color: #444;
 }
+
+.fa {
+    margin-right: 8px;
+    color: #444;
+}
+
 
 
 a.town-link::before {
