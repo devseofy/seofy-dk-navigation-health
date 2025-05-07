@@ -98,9 +98,13 @@
     }
 }
 
-
+div#town-directory-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
 .company-list-row {
-    display: flex;
+    display: block;
     flex-direction: column;
     border: 1px solid #e1e4e8;
     border-radius: 8px;
