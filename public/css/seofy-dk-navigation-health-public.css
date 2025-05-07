@@ -804,3 +804,57 @@ div#town-directory-container .firma-category {
     gap: 10px 20px;
     flex-wrap: wrap;
 }
+.modern-town-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+    justify-items: center;
+    padding: 20px 0;
+}
+
+.town-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+    max-width: 220px;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.town-card:hover {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.town-card-image {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.town-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.town-card-meta {
+    padding: 12px;
+}
+
+.town-card-meta h4 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.category-label {
+    font-size: 0.85rem;
+    color: #777;
+}

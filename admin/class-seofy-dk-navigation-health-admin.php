@@ -1898,27 +1898,34 @@ class Seofy_Dk_Navigation_Health_Admin {
 		$query = new WP_Query($args);
 	
 		if ($query->have_posts()) {
-			echo '<div class="town-directory-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;">';
-	
+			echo '<div class="modern-town-grid">';
+		
 			while ($query->have_posts()) {
 				$query->the_post();
 				$post_id = get_the_ID();
-	
+		
 				$cat = get_post_meta($post_id, '_tn_category', true);
 				$image_url = plugin_dir_url(__FILE__) . 'images/' . strtolower(esc_attr($cat)) . '-behandler.jpg';
 				$permalink = get_permalink($post_id);
 				$town_name = get_post_meta($post_id, '_tn_town', true);
-	
-				echo '<a href="' . esc_url($permalink) . '" class="town-grid-item">';
-				echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($town_name) . '" style="width:100%;height:auto;">';
+		
+				echo '<a href="' . esc_url($permalink) . '" class="town-card">';
+				echo '<div class="town-card-image">';
+				echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($town_name) . '">';
+				echo '</div>';
+				echo '<div class="town-card-meta">';
+				echo '<h4>' . esc_html($town_name) . '</h4>';
+				echo '<span class="category-label">' . esc_html($cat) . '</span>';
+				echo '</div>';
 				echo '</a>';
 			}
-	
+		
 			echo '</div>';
 			wp_reset_postdata();
 		} else {
 			echo '<p>No related towns found.</p>';
 		}
+		
 	
 		return ob_get_clean();
 	}
