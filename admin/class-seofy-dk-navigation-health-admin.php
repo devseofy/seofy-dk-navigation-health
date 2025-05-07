@@ -1592,49 +1592,43 @@ class Seofy_Dk_Navigation_Health_Admin {
 	}
 
 	public function town_list_shortcode($atts){
-
-
-		  // Retrieve posts by the specified post type
 		$args = array(
 			'post_type' => 'by',
 			'posts_per_page' => -1,
 			'orderby' => 'title',
 			'order' => 'ASC',
 		);
-		$output = '<div class="reset-button"><a href="'.$current_page.'"> <i class="fa-solid fa-arrows-rotate"></i> Reset </a></div>';
-		
-		$output .= '<div class="alphabet-nav-wrapper"><div class="AlphabetNav">';
-
-		$characters = array_merge(range('A', 'Z'), array('Æ', 'Ø', 'Å'));
+	
 		$current_page = get_permalink();
 	
-
+		$output = '<div class="towns__reset"><a href="'.$current_page.'"><i class="fa-solid fa-arrows-rotate"></i> Nulstil</a></div>';
+		$output .= '<nav class="towns__nav"><div class="towns__letters">';
+	
+		$characters = array_merge(range('A', 'Z'), array('Æ', 'Ø', 'Å'));
+	
 		foreach ($characters as $char) {
-			$output .= '<a href="#" class="toggle Contact-name" data-starting-char="' . esc_attr($char) . '">' . esc_html($char) . '</a>';
+			$output .= '<a href="#" class="towns__letter" data-starting-char="' . esc_attr($char) . '">' . esc_html($char) . '</a>';
 		}
-
-		$output .= '</div></div>';
-
-		$query = new WP_Query($args); 
-		 // Display town list
+	
+		$output .= '</div></nav>';
+	
+		$query = new WP_Query($args);
 		if ($query->have_posts()) {
-			$output .= '<div id="town-names-wrapper">';
+			$output .= '<div class="towns__list">';
 			while ($query->have_posts()) {
 				$query->the_post();
 				$title = get_the_title();
 				$permalink = get_the_permalink();
 				$town_name = get_post_meta(get_the_ID(), '_tn_town', true);
-				$output .=  '<div class="town-name" data-town-name="' . $town_name . '"> <a href="'.$permalink.'">'.$town_name.'</a> </div>';
-			
+				$output .= '<div class="towns__item" data-town-name="' . $town_name . '"><a href="' . $permalink . '">' . $town_name . '</a></div>';
 			}
 			$output .= '</div>';
 			wp_reset_postdata();
 		}
-
-
-
+	
 		return $output;
 	}
+	
 	
 
 	//

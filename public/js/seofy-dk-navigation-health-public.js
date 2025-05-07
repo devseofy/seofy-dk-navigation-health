@@ -30,23 +30,25 @@
 	 */
 	
 	jQuery(document).ready(function ($) {
-		// Enhance the select box with select2 for searching
-		$(".Contact-name").click(function(e){
-			e.preventDefault(); // Prevent the default action of the anchor tag
-        
-			var startingChar = $(this).data('starting-char'); // Get the starting character from the clicked element
-			
-			// Loop through each town name
-			$('.town-name').each(function(){
-				var townName = $(this).data('town-name'); // Get the town name
-				
-				if(townName.startsWith(startingChar)){
-					$(this).show(); // Show this town name if it starts with the clicked character
+		$('.towns__letter').click(function (e) {
+			e.preventDefault();
+	
+			const startingChar = $(this).data('starting-char');
+	
+			// Highlight the selected letter
+			$('.towns__letter').removeClass('active');
+			$(this).addClass('active');
+	
+			$('.towns__item').each(function () {
+				const townName = $(this).data('town-name');
+				if (townName && townName.startsWith(startingChar)) {
+					$(this).fadeIn();
 				} else {
-					$(this).hide(); // Hide this town name if it does not start with the clicked character
+					$(this).fadeOut();
 				}
 			});
 		});
 	});
+	
 
 })( jQuery );

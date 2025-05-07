@@ -1,83 +1,94 @@
-/**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
- *
-*/
-
-.alphabet-nav-wrapper{
-    position: relative;
+/* Container Reset */
+.towns__reset {
+    margin-bottom: 1rem;
 }
-.AlphabetNav {
-    position: relative;
-    top: 0;
-    right: 0;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-around;
-    flex-flow: wrap row;
-    padding: 0.5rem;
+.towns__reset a {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #d72638;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+.towns__reset a:hover {
+    background: #a31d2b;
+}
+.towns__reset i {
+    margin-right: 0.5rem;
+}
+
+/* Alphabet Navigation */
+.towns__nav {
     background: #12a567;
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
 }
-.AlphabetNav a {
-    display: flex;
-    justify-content: center;
-    padding: .5em;
-    border-radius: 8px;
-    font-size: 20px;
-    line-height: 1;
-    text-decoration: none;
-    color: white!important;
-    font-weight: bold;
-}
-
-.AlphabetNav a:hover {
-    background: #282828;
-    color: white;
-}
-
-.AlphabetNav .active {
-    background: #f46353;
-    color: white;
-}
-div#town-names-wrapper {
+.towns__letters {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    justify-content: center;
+    gap: 0.5rem;
 }
-div#town-names-wrapper div {
-    width: 16%;
-    padding: 10px;
-    text-align: center;
-    margin: 1px;
+.towns__letter {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
-div#town-names-wrapper div:hover a {
-    color: white;
-}
-div#town-names-wrapper div:hover {
-    background: #266abb;
-    transition: .5s;
-    border-radius: 5px;
+.towns__letter:hover,
+.towns__letter.active {
+    background: #ffffff33;
+    transform: scale(1.1);
 }
 
-div#town-names-wrapper a {
-    font-size: 16px;
-    color: #767676;
+/* Town List */
+.towns__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
 }
-.reset-button a {
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-    color: white !important;
-    background: #be0c0c;
-    display: inline-block;
+.towns__item {
+    flex: 0 0 calc(16.66% - 10px);
+    background: #f9f9f9;
+    text-align: center;
+    padding: 0.75rem;
     border-radius: 5px;
-    margin-bottom: 10px;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
-.reset-button i {
-    margin-right: 15px;
+.towns__item:hover {
+    background: #266abb;
+    transform: translateY(-4px);
+}
+.towns__item a {
+    text-decoration: none;
+    color: #444;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.towns__item:hover a {
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .towns__item {
+        flex: 0 0 48%;
+    }
+}
+@media (max-width: 480px) {
+    .towns__item {
+        flex: 0 0 100%;
+    }
 }
 
 
