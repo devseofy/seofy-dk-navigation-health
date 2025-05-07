@@ -56,8 +56,8 @@ get_header(); ?>
                 //print_r($post_type_obj);
                 //print_r($post_type_label);
                 $databank_id_value = get_post_meta(get_the_ID(), $databank_id_field, true);
-                    echo do_shortcode("[town_page region='".$region."' postal_code='".$postal_code."' category='".$post_type."']");
-                    wp_reset_postdata();
+                echo do_shortcode("[town_page region='".$region."' postal_code='".$postal_code."' category='".$post_type."']");
+                wp_reset_postdata();
             ?>
 
 

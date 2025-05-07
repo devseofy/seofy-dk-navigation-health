@@ -1274,7 +1274,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 			'category' => '', 
 		), $atts);
 		
-		echo $this->search_post_by_region_and_town("Region ".$atts['region'], $atts['postal_code'], $atts['category']);
+		return $this->search_post_by_region_and_town("Region ".$atts['region'], $atts['postal_code'], $atts['category']);
 	}
 
 
