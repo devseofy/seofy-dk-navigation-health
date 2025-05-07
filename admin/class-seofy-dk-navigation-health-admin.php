@@ -1914,8 +1914,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 				echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($town_name) . '">';
 				echo '</div>';
 				echo '<div class="town-card-meta">';
-				echo '<h4>' . esc_html($town_name) . '</h4>';
-				echo '<span class="category-label">' . esc_html($cat) . '</span>';
+				echo '<h4>' .  esc_html($cat) . '</h4>';
 				echo '</div>';
 				echo '</a>';
 			}

@@ -19,6 +19,10 @@ jQuery(document).ready(function($) {
                 health_category: ajax_pagination_params.health_category
             },
             success: function(response) {
+
+                console.log(response);
+                console.log(health_category);
+                console.log(postal_codes);
                 if (response.success) {
                     $('#town-directory-container').append(response.data.html);
                     max_pages = response.data.max_pages;
