@@ -867,7 +867,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 		$atts = shortcode_atts(array(
 			'town' => 'København',
 			'region' => 'Region Hovedstaden', // Default CSV file name
-			'health_category' => 'Kiropraktor'
+			'health_category' => 'kiropraktor'
 		), $atts);
 		$town = $atts['town'];
 		$region = $atts['region'];
@@ -906,7 +906,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 	
 		$args = array(
 			'post_type' => $health_category,
-			'posts_per_page' => 10,
+			'posts_per_page' => 12,
 			'paged' => $paged,
 			'meta_query' => array(
 				array(

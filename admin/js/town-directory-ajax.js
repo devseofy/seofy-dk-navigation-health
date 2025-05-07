@@ -15,7 +15,8 @@ jQuery(document).ready(function($) {
             data: {
                 action: 'load_town_directory',
                 paged: paged,
-                postal_codes: ajax_pagination_params.postal_codes
+                postal_codes: ajax_pagination_params.postal_codes,
+                health_category: health_category
             },
             success: function(response) {
                 if (response.success) {
