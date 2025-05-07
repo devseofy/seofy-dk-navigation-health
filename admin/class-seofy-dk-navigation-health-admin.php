@@ -867,40 +867,25 @@ class Seofy_Dk_Navigation_Health_Admin {
 		$atts = shortcode_atts(array(
 			'town' => 'København',
 			'region' => 'Region Hovedstaden', // Default CSV file name
+			'health_category' => 'Kiropraktor'
 		), $atts);
 		$town = $atts['town'];
 		$region = $atts['region'];
+		$health_category = $atts['health_category'];
 		$postal_codes = array();
 	
 		$postal_codes = $this->getAllPostalCodesFromCSV($town, $region);
 		if (!empty($postal_codes)){
 
-			
-			/*$args = array(
-				'post_type' => 'post',
-				'posts_per_page' => -1,
-				'meta_query'     => array(
-					array(
-						'key'     => '_postal_code', // Replace with your custom field name for postal code
-						'value'   => $postal_codes,   // Replace with the desired value for postal code
-						'compare' => 'IN',            // Comparison operator for postal code
-					),
-				),
-			);
-			
-			//print_r($args);
-
-			$firma_query = new WP_Query($args);
-
-			include 'templates/town-directory.php';*/
 
 			wp_enqueue_script('town-directory-ajax', plugin_dir_url( __FILE__ )  . '/js/town-directory-ajax.js', array('jquery'), null, true);
 			wp_localize_script('town-directory-ajax', 'ajax_pagination_params', array(
 				'ajax_url' => admin_url('admin-ajax.php'),
-				'posts_per_page' => 10,
+				'posts_per_page' => 12,
 				'town' => $town,
 				'region' => $region,
-				'postal_codes' => $postal_codes
+				'postal_codes' => $postal_codes,
+				'health_category' => $health_category
 			));
 	
 			// Output initial container
@@ -917,9 +902,10 @@ class Seofy_Dk_Navigation_Health_Admin {
 	public function load_town_directory() {
 		$postal_codes = isset($_POST['postal_codes']) ? $_POST['postal_codes'] : array();
 		$paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+		$health_category = isset($_POST['health_category']) ? $_POST['health_category'] : 'post';
 	
 		$args = array(
-			'post_type' => array('post', 'kiropraktor', 'fysioterapeut', 'akupunktur', 'massoer', 'zoneterapi', 'osteopat'),
+			'post_type' => $health_category,
 			'posts_per_page' => 10,
 			'paged' => $paged,
 			'meta_query' => array(
