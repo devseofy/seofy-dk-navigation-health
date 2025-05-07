@@ -1919,7 +1919,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 				$post_id = get_the_ID();
 	
 				$cat = get_post_meta($post_id, '_tn_category', true);
-				$image_url = plugin_dir_url(__FILE__) . 'images/' . esc_attr($cat) . '-behandler.jpg';
+				$image_url = plugin_dir_url(__FILE__) . 'images/' . strtolower(esc_attr($cat)) . '-behandler.jpg';
 				$permalink = get_permalink($post_id);
 				$town_name = get_post_meta($post_id, '_tn_town', true);
 	
