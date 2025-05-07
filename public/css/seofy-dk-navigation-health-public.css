@@ -189,9 +189,11 @@ div#town-directory-container {
     text-decoration: none;
     font-weight: 500;
     transition: background-color 0.3s;
+    width: 100%;
 }
 .contact-button a:hover {
     background-color: #155a99;
+    color: white;
 }
 
 /* Open/closed labels */

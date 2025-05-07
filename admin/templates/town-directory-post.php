@@ -19,7 +19,7 @@
                 <?php echo get_post_meta(get_the_ID(), '_street_name', true) . ' ' . get_post_meta(get_the_ID(), '_street_number', true) . '<br>' . get_post_meta(get_the_ID(), '_postal_code', true) . ' ' . get_post_meta(get_the_ID(), '_postal_area', true); ?>
             </p>
             <p>
-                <?php echo get_post_meta(get_the_ID(), '_rank_math_description', true); ?>
+                <?php echo get_post_meta(get_the_ID(), 'rank_math_description', true); ?>
             </p>
             <div class="company-categories">
                 <?php 
