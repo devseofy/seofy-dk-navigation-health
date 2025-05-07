@@ -47,19 +47,6 @@
 				}
 			});
 		});
-
-		$('.map-toggle-button').on('click', function(e) {
-			e.preventDefault();
-	
-			var mapId = $(this).data('map-id');
-			var $mapElement = $('#' + mapId);
-	
-			// Hide all other maps
-			$('.map-tooltip').not($mapElement).hide();
-	
-			// Toggle the current map
-			$mapElement.toggle();
-		});
 	});
 	
 	

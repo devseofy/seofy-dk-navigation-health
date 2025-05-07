@@ -26,17 +26,6 @@
 
             <div class="contact-row">
                 <a href="<?php echo get_the_permalink(); ?>" class="contact-button">Kontakt</a>
-                <button class="map-toggle-button" data-map-id="map-<?php echo get_the_ID(); ?>">Se kort</button>
-            </div>
-
-            <div class="map-tooltip" id="map-<?php echo get_the_ID(); ?>">
-                <iframe 
-                    width="100%" 
-                    height="210" 
-                    frameborder="0" 
-                    loading="lazy"
-                    src="https://maps.google.com/maps?q=<?php echo get_post_meta(get_the_ID(), '_lat_map', true); ?>,<?php echo get_post_meta(get_the_ID(), '_lon_map', true); ?>&hl=da&z=14&output=embed"
-                ></iframe>
             </div>
         </div>
     </div>
