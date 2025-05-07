@@ -1192,42 +1192,6 @@ class Seofy_Dk_Navigation_Health_Admin {
 		
 	}
 
-	/*
-	private function linkKeywords($content, $keywords) {
-		foreach ($keywords as $keyword => $url) {
-			// Find occurrences of the keyword in the content
-			$pattern = "/(?<!\/)$keyword(?!['\"])/i"; // Exclude matches within attributes
-			preg_match_all($pattern, $content, $matches, PREG_OFFSET_CAPTURE);
-	
-			// Iterate through matches and add links
-			$offset = 0; // Keep track of the offset for replacements
-			foreach ($matches[0] as $match) {
-				$start = $match[1] + $offset;
-				$end = $start + strlen($match[0]);
-	
-				// Check if the keyword is within a tag that should be excluded
-				$excludeTags = ['a', 'img'];
-				$excludeLink = false;
-				foreach ($excludeTags as $tag) {
-					$tagPattern = "/<$tag(?!.*?\b(?:class|id)=[\"'].*?$keyword.*?[\"'])[^>]*>.*?<\/$tag>/i";
-					if (preg_match($tagPattern, substr($content, $start, $end - $start))) {
-						$excludeLink = true;
-						break;
-					}
-				}
-	
-				// Add link if not within excluded tags
-				if (!$excludeLink) {
-					$link = '<a href="' . $url . '">' . $keyword . '</a>';
-					$content = substr_replace($content, $link, $start, strlen($keyword));
-					$offset += strlen($link) - strlen($keyword); // Update offset for next replacement
-				}
-			}
-		}
-	
-		return $content;
-	}*/
-
 	private function linkKeywords($content, $keywords) {
 		$linkedKeywords = []; // Keep track of linked keywords
 		$existingLinks = [];
@@ -1597,6 +1561,13 @@ class Seofy_Dk_Navigation_Health_Admin {
 			'posts_per_page' => -1,
 			'orderby' => 'title',
 			'order' => 'ASC',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'town_taxonomy', // Replace with your custom taxonomy
+					'field' => 'slug',
+					'terms' => 'main-by', // Replace with your custom taxonomy term
+				),
+			),
 		);
 	
 		$current_page = get_permalink();

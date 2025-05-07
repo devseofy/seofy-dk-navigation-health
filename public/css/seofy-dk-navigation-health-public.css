@@ -99,225 +99,130 @@
 }
 
 
-
-/* CSS for Clinic List View */
-
-.comp-container {
-    width: 100%;
-    margin: auto;
-}
-
-.flex-container {
-    display: inline-flex;
-    width: 100%;
-}
-.company-area {
-    width: 100%;
-
-}
 .company-list-row {
-    width: 100%;
-    border: solid 1px #ccc;
-	margin-bottom:10px;
-	display:flex;
-}
-.map-area {
-    width: 25%;
-	border: solid 1px #ccc;
-    padding: 10px;
-	display:flex;
-}
-
-.inner-flex-cont-row {
     display: flex;
-    border-right: 1px solid #ccc;
-    justify-content: space-around;
-	width:50%;
+    flex-direction: column;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
-.comp-btn {
-    margin-top: 15px;
+.company-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+    align-items: flex-start;
 }
 
-.comp-btn a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-	    background: #1db31d;
-    padding: 10px 33px;
-    border-radius: 10px;
-}
-.close-open-label.open-color, .open-label {
-    color: #1db31d;
-    font-weight: bold;
-}
-.close-open-label.closed-color, .closed-label {
-    color: red;
-    font-weight: bold;
-}
-.comp-name h3 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-}
-.comp-cat {
-    font-weight: bold;
-}
-.col-sm {
-    padding: 10px;
-    width: 300px;
-}
-.col-sm img {
-    filter: grayscale(1);
-}
-.comp-address {
-    font-size: 14px;
-    margin-top: 15px;
-}
-
-.comp-description {
-    display: table;
-    height: 80%;
-    font-size: 14px;
-}
-.comp-price-btn {
-    background: linear-gradient(#fff,#f2f2f2);
-    padding: 8px 10px;
-    text-align: center;
-    border: 1px solid #d2d2d2;
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.25);
-}
-.comp-price-btn a {
-    text-decoration: none;
-}
-
-.schedule-area {
-    width: 25%;
-    padding: 10px;
-}
-.map-data {
-    width: 100%;
-}
-
-.checked {
-  color: orange;
-}
-
-.comp-description p {
-    margin: 0;
-}
-
-.close-open::before {
-    content: "\f017";
-    font-family: 'FontAwesome';
-    margin-right: 10px;
-    vertical-align: middle;
-    font-weight: 100;
-    color: #7c6e6e;
-}
-.close-open {
-    font-weight: bold;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-.close-open-label {
-    font-size: 16px;
-}
-.comp-category {
-    width: auto;
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    margin-top: 15px;
-}
-
-.facilities-area h4::before {
-    content: "\f015";
-    font-family: 'FontAwesome';
-    color: #7c6e6e;
-    margin-right: 10px;
-}
-
-.facilities-area ul {
-    margin: -14px 0px;
-    font-size: 14px;
-}
-.facilities-area ul li {
-    list-style: none;
-}
-
-.facilities-area ul li::before {
-    content: "\f101";
-    font-family: 'FontAwesome';
-    color: #aba6a6;
-    margin-right: 5px;
-}
-
-/*Responsive Css for Company List*/
-
-
-@media screen and (max-width: 500px) {
-  .company-list-row {
-    display: block;
-  }
-		.comp-thumbnail img {
-				width: 100%;
-				height: 250px;
-				object-fit: cover;
-		}
-	.schedule-area {
-		width: 100%;
-		padding: 10px;
-	}
-	
-	.inner-flex-cont-row {
-		display: block;
-		border-right: 1px solid #ccc;
-		width: 100%;
-	}
-	.col-sm {
-    padding: 10px;
-    width: 100%;
-	}
-	.comp-btn {
-    margin-top: 10px;
-    display: grid;
-    text-align: center;
-    margin-bottom: 10px;
-	}
-}
-
-@media screen and (max-width: 769px) and ( min-width:501px ) { 
-	.flex-container {
-		display: block;
-	}
-	.company-list-row {
-		width: 100%;
-		border: solid 1px #ccc;
-		margin-bottom: 10px;
-		display: block;
-	}
-	.inner-flex-cont-row {
-		display: flex;
-		border-right: 1px solid #ccc;
-		justify-content: space-around;
-		width: 100%;
-	}
-	.schedule-area {
-		width: 100%;
-		padding: 10px;
-	}
-	.col-sm img {
-    filter: grayscale(1);
+.company-thumbnail img {
+    border-radius: 6px;
+    max-width: 220px;
     width: 100%;
     object-fit: cover;
-	}
-	.col-sm {
-    padding: 10px;
+    filter: grayscale(0.1);
+    transition: filter 0.3s;
+}
+.company-thumbnail img:hover {
+    filter: grayscale(0);
+}
+
+.company-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.company-name a {
+    font-size: 1.25rem;
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.company-name a:hover {
+    color: #1e70bf;
+}
+
+.company-address {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 10px 0 0;
+    line-height: 1.6;
+}
+
+.company-categories {
+    margin-top: 15px;
+}
+.category-tag {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1e70bf;
+    background: #eef4fa;
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.company-schedule {
+    min-width: 200px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.contact-button a {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 25px;
+    font-size: 0.95rem;
+    background-color: #1e70bf;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+.contact-button a:hover {
+    background-color: #155a99;
+}
+
+/* Open/closed labels */
+.open-label,
+.close-open-label.open-color {
+    color: #2ecc71;
+    font-weight: bold;
+}
+.closed-label,
+.close-open-label.closed-color {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Map styling */
+.company-map iframe {
     width: 100%;
-	}
+    height: 210px;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .company-content {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .company-thumbnail img {
+        max-width: 100%;
+    }
+    .company-schedule {
+        width: 100%;
+        text-align: left;
+        margin-top: 15px;
+    }
 }
 
 
