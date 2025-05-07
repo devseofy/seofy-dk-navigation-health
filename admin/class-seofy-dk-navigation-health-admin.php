@@ -1274,7 +1274,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 			'category' => '', 
 		), $atts);
 		
-		return $this->search_post_by_region_and_town("Region ".$atts['region'], $atts['postal_code'], $atts['category']);
+		echo $this->search_post_by_region_and_town("Region ".$atts['region'], $atts['postal_code'], $atts['category']);
 	}
 
 
@@ -1336,7 +1336,9 @@ class Seofy_Dk_Navigation_Health_Admin {
 					$output .= '</div>';
 				}
 				wp_reset_postdata();
+				return $output;
 			}
+
 
 		}
 
