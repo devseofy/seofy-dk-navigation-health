@@ -448,14 +448,41 @@ div#details {
 .firma-right-wrapper {
     flex: 1 1 100%;
 }
-
+a.town-card h4 {
+    text-transform: capitalize;
+}
 @media (min-width: 768px) {
+
+    .firma-right-wrapper {
+        width: 100%;
+    }
+    .firma-category {
+        flex-wrap: wrap;
+    }
+    .firma-right-wrapper .entry-content table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        display: block;
+    }
+    div#town-directory-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .contact-button a {
+        text-align: center;
+    }
     .firma-left-wrapper {
         flex: 1 1 35%;
     }
 
     .firma-right-wrapper {
         flex: 1 1 60%;
+    }
+    a.town-card {
+        width: 100% !important;
+        max-width: 100%;
+    }
+    .modern-town-grid {
+        grid-template-columns: repeat(1,  1fr) !important;
     }
 }
 
