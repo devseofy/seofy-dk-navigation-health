@@ -1322,7 +1322,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 						'compare' => '='
 					),
 					array(
-						'key' => '_category',
+						'key' => '_tn_category',
 						'value' => $category,
 						'compare' => '='
 					),
