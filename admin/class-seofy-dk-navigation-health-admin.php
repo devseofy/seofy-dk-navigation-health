@@ -1943,9 +1943,17 @@ class Seofy_Dk_Navigation_Health_Admin {
 		ob_start();
 	
 		$args = array(
-			'post_type' => 'company', // Change if needed
+			'post_type' => ['kiropraktor', 'fysioterapeut', 'akupunktur', 'massoer', 'zoneterapi', 'osteopat'],
 			'posts_per_page' => -1,
+			'meta_query' => array(
+				array(
+					'key'     => '_company_featured',
+					'value'   => 'yes',
+					'compare' => '='
+				)
+			)
 		);
+		
 		$query = new WP_Query($args);
 	
 		$columns_class = ($atts['columns'] == 4) ? 'columns-4' : 'columns-3';
