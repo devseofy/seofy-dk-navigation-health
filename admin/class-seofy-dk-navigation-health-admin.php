@@ -1989,9 +1989,6 @@ class Seofy_Dk_Navigation_Health_Admin {
 								 get_post_meta(get_the_ID(), '_postal_area', true);
 							?>
 						</p>
-						<p class="company-shortdesc">
-							<?php echo get_post_meta(get_the_ID(), 'rank_math_description', true); ?>
-						</p>
 						<div class="company-categories">
 							<?php
 							$categories = explode(',', get_post_meta(get_the_ID(), '_directory_category', true));
