@@ -842,3 +842,103 @@ div#town-directory-container .firma-category {
     font-size: 0.85rem;
     color: #777;
 }
+
+
+.seofy-featured-companies-wrapper {
+    margin: 2rem 0;
+}
+
+.seofy-featured-companies-wrapper .seofy-company-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.seofy-featured-companies-wrapper .seofy-company-grid.columns-3 {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.seofy-featured-companies-wrapper .seofy-company-grid.columns-4 {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.seofy-featured-companies-wrapper .company-list-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.seofy-featured-companies-wrapper .company-list-card:hover {
+    transform: translateY(-5px);
+}
+
+.seofy-featured-companies-wrapper .company-thumbnail {
+    position: relative;
+}
+
+.seofy-featured-companies-wrapper .company-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.seofy-featured-companies-wrapper .company-schedule {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: #1e90ff;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.seofy-featured-companies-wrapper .contact-button {
+    margin-top: 8px;
+}
+
+.seofy-featured-companies-wrapper .contact-button a {
+    display: inline-block;
+    background: #ff5e57;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.seofy-featured-companies-wrapper .company-info {
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.seofy-featured-companies-wrapper .company-name {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.seofy-featured-companies-wrapper .company-address,
+.seofy-featured-companies-wrapper .company-shortdesc {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0.25rem 0;
+}
+
+.seofy-featured-companies-wrapper .company-categories {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.seofy-featured-companies-wrapper .category-tag {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}

@@ -94,6 +94,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 		add_action('init', array($this, 'register_health_category_post_types'));
 
 		add_filter('template_include', array($this,  'load_custom_single_template'));
+		add_shortcode('seofy_featured_companies', array( $this,'seofy_featured_companies_shortcode'));
 
 	}	
 
@@ -1933,5 +1934,75 @@ class Seofy_Dk_Navigation_Health_Admin {
 	
 		return ob_get_clean();
 	}
+
+	public function seofy_featured_companies_shortcode($atts) {
+		$atts = shortcode_atts(array(
+			'columns' => 3,
+		), $atts, 'seofy_featured_companies');
+	
+		ob_start();
+	
+		$args = array(
+			'post_type' => 'company', // Change if needed
+			'posts_per_page' => -1,
+		);
+		$query = new WP_Query($args);
+	
+		$columns_class = ($atts['columns'] == 4) ? 'columns-4' : 'columns-3';
+	
+		if ($query->have_posts()) {
+			echo '<div class="seofy-featured-companies-wrapper">';
+			echo '<div class="seofy-company-grid ' . esc_attr($columns_class) . '">';
+
+			while ($query->have_posts()) {
+				$query->the_post();
+				?>
+				<div class="company-list-card">
+					<div class="company-thumbnail">
+						<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail('medium'); ?>
+						</a>
+						<div class="company-schedule">
+							<?php echo do_shortcode('[seofy_opening_hours_current]'); ?>
+							<div class="contact-button">
+								<a href="<?php the_permalink(); ?>">Kontakt</a>
+							</div>
+						</div>
+					</div>
+					<div class="company-info">
+						<h3 class="company-name">
+							<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+						</h3>
+						<p class="company-address">
+							<?php
+							echo get_post_meta(get_the_ID(), '_street_name', true) . ' ' .
+								 get_post_meta(get_the_ID(), '_street_number', true) . '<br>' .
+								 get_post_meta(get_the_ID(), '_postal_code', true) . ' ' .
+								 get_post_meta(get_the_ID(), '_postal_area', true);
+							?>
+						</p>
+						<p class="company-shortdesc">
+							<?php echo get_post_meta(get_the_ID(), 'rank_math_description', true); ?>
+						</p>
+						<div class="company-categories">
+							<?php
+							$categories = explode(',', get_post_meta(get_the_ID(), '_directory_category', true));
+							foreach ($categories as $cat): ?>
+								<span class="category-tag"><i class="fa-solid fa-tag"></i> <?php echo esc_html(trim($cat)); ?></span>
+							<?php endforeach; ?>
+						</div>
+					</div>
+				</div>
+				<?php
+			}
+			echo '</div>'; // close seofy-company-grid
+			echo '</div>'; // close seofy-featured-companies-wrapper
+			
+			wp_reset_postdata();
+		}
+	
+		return ob_get_clean();
+	}
+	
 
 }
