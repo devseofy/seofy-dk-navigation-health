@@ -478,7 +478,7 @@ a.town-card h4 {
         flex: 1 1 60%;
     }
     a.town-card {
-        width: 100% !important;
+        width: 220px;
         max-width: 100%;
     }
     .modern-town-grid {
@@ -794,6 +794,8 @@ div#town-directory-container .firma-category {
     gap: 24px;
     justify-items: center;
     padding: 20px 0;
+    width: 220px;
+    grid-auto-flow: column;
 }
 
 .town-card {
