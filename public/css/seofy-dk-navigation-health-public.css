@@ -182,7 +182,6 @@ div#town-directory-container {
 
 .company-schedule {
     min-width: 200px;
-    text-align: center;
     flex-shrink: 0;
 }
 
@@ -888,11 +887,12 @@ div#town-directory-container .firma-category {
 }
 
 .seofy-featured-companies-wrapper .company-schedule {
-    background: #1e90ff;
-    color: #fff;
+    background: #ffffff;
+    color: black;
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.85rem;
+    margin-top: 10px;
 }
 
 .seofy-featured-companies-wrapper .contact-button {
@@ -901,7 +901,7 @@ div#town-directory-container .firma-category {
 
 .seofy-featured-companies-wrapper .contact-button a {
     display: inline-block;
-    background: #ff5e57;
+    background: #1e70bf;
     color: #fff;
     padding: 6px 12px;
     border-radius: 4px;
@@ -972,7 +972,11 @@ div#town-directory-container .firma-category {
 	.firma-right-wrapper {
 			width: 100%;
 	}
-		.entry-content thead, .entry-content tbody, .entry-content tr, .entry-content th, .entry-content td {
+	.entry-content thead, .entry-content tbody, .entry-content tr, .entry-content th, .entry-content td {
 			display: revert !important;
 	}
+
+    .seofy-featured-companies-wrapper .seofy-company-grid.columns-4 {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
 }

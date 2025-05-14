@@ -1970,12 +1970,7 @@ class Seofy_Dk_Navigation_Health_Admin {
 						<a href="<?php the_permalink(); ?>">
 							<?php the_post_thumbnail('medium'); ?>
 						</a>
-						<div class="company-schedule">
-							<?php echo do_shortcode('[seofy_opening_hours_current]'); ?>
-							<div class="contact-button">
-								<a href="<?php the_permalink(); ?>">Kontakt</a>
-							</div>
-						</div>
+
 					</div>
 					<div class="company-info">
 						<h3 class="company-name">
@@ -1995,6 +1990,12 @@ class Seofy_Dk_Navigation_Health_Admin {
 							foreach ($categories as $cat): ?>
 								<span class="category-tag"><i class="fa-solid fa-tag"></i> <?php echo esc_html(trim($cat)); ?></span>
 							<?php endforeach; ?>
+						</div>
+						<div class="company-schedule">
+							<?php echo do_shortcode('[seofy_opening_hours_current]'); ?>
+							<div class="contact-button">
+								<a href="<?php the_permalink(); ?>">Kontakt</a>
+							</div>
 						</div>
 					</div>
 				</div>
