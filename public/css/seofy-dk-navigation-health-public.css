@@ -464,7 +464,7 @@ a.town-card h4 {
         display: block;
     }
     div#town-directory-container {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     .contact-button a {
         text-align: center;
@@ -978,5 +978,8 @@ div#town-directory-container .firma-category {
 
     .seofy-featured-companies-wrapper .seofy-company-grid.columns-4 {
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+    .firma-left-wrapper {
+        width: 100%;
     }
 }
