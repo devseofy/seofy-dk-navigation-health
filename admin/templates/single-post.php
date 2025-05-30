@@ -61,9 +61,9 @@ get_header(); ?>
             if (isset($_GET['status'])) {
                 $status = $_GET['status'];
                 if ($status === 'success') {
-                    echo '<div class="alert alert-success">Page successfully claimed</div>';
+                    echo '<div class="alert alert-success">Sidekrav sendt</div>';
                 } elseif ($status === 'failed') {
-                    echo '<div class="alert alert-failed">Failed, something went wrong</div>';
+                    echo '<div class="alert alert-failed">Mislykkedes, noget gik galt. Send en besked til <a href="mailto:$admin_email">'.$admin_email.'</a></div>';
                 }
             }
 
