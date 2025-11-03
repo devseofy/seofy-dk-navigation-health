@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://seofy.dk
- * @since             1.0.45
+ * @since             1.0.46
  * @package           Seofy_Dk_Navigation_Health
  *
  * @wordpress-plugin
  * Plugin Name:       Seofy DK Navigation Health
  * Plugin URI:        https://seofy.dk
  * Description:       Seofy DK Navigation for Health is a specialized WordPress plugin designed to improve website navigation and user experience for health and wellness websites. This powerful tool enables clinic owners, healthcare professionals, and developers to create dynamic, accessible, and customizable navigation menus that help users easily find the health services, practitioners, and information they need.
- * Version:           1.0.45
+ * Version:           1.0.46
  * Author:            Jonard Aragon
  * Author URI:        https://seofy.dk/
  * License:           GPL-2.0+
@@ -32,10 +32,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version.
- * Start at version 1.0.45 and use SemVer - https://semver.org
+ * Start at version 1.0.46 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'SEOFY_DK_NAVIGATION_HEALTH_VERSION', '1.0.45' );
+define( 'SEOFY_DK_NAVIGATION_HEALTH_VERSION', '1.0.46' );
 
 /**
  * The code that runs during plugin activation.
@@ -71,7 +71,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-seofy-dk-navigation-health
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.45
+ * @since    1.0.46
  */
 function run_seofy_dk_navigation_health() {
 
@@ -88,7 +88,6 @@ function github_plugin_updater_dk_navigation_health_init() {
         define( 'SDKNH_PROPER_FOLDER_NAME', 'seofy-dk-navigation-health');
         define( 'SDKNH_PLUGIN_SLUG',  'seofy-dk-navigation-health' );
         define( 'SDKNH_GITHUB_URL',  'https://api.github.com/repos/devseofy/seofy-dk-navigation-health/releases');
-        define( 'SDKNH_GITHUB_TOKEN',  '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');
         new WP_GitHub_Updater_For_SeofyPlugin_Dk_Navigation_Health();
 
     }
